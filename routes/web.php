@@ -31,6 +31,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/manage', [ProductController::class, 'manage'])->middleware('isLoggedIn'); // middlware should be isAdmin
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add-product'); // middlware should be isAdmin
+Route::post('/update-product', [ProductController::class, 'updateProduct'])->name('update-product'); // middlware should be isAdmin
 
 Route::get('/products', [ProductController::class, 'viewAllProducts']);
 Route::get('/orders', function () {

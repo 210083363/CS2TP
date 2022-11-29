@@ -4,7 +4,7 @@
 
 @section('content')
 
-<script type="text/javascript"  src="{{asset('app.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('app.js')}}"></script> -->
 <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
     @csrf
     <h1>Manage your products</h1>
@@ -30,7 +30,10 @@
                 <td><input type="number" class="form-control" placeholder="Price" name="price" step="0.01" min="0.00" value="{{old('price')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="stock" min="0" value="{{old('stock')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="size" step="0.5" min="0.00" value="{{old('size')}}"></td>
-                <td><select class="form-control" name="gender"><option value="male">Male</option><option value="female">Female</option></select></td>
+                <td><select class="form-control" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select></td>
                 <td><input type="file" name="product_image" class="form-control"></td>
                 <td><button type="submit">Add product</button></td>
             </tr>
@@ -46,31 +49,43 @@
 
 <table class="table">
     <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Size</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Image</th>
-        <th scope="col"></th>
-      </tr>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Size</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Image</th>
+            <th scope="col"></th>
+        </tr>
     </thead>
     <tbody>
         @forelse($data as $product)
+        <form action="{{route('update-product', $product->id)}}" method="post" enctype="multipart/form-data">
+            @csrf
             <tr id="product_{{$product->id}}">
-            <td>{{$product->id}}</td>
-            <td><input type="text" value="{{$product->name}}"></td>
-            <td><input type="text" value="{{$product->price}}"></td>
-            <td><input type="text" value="{{$product->stock}}"></td>
-            <td><input type="text" value="{{$product->size}}"></td>
-            <td><input type="text" value="{{$product->gender}}"></td>
-            <td><input type="text" value="{{$product->imgPath}}"></td>
-            <td><button type="submit" onclick="toggleEditMode({{$product->id}})">Edit</button></td>
+                <td><input type="hidden" value="{{$product->id}}" name="id"></td>
+                <td><input type="text" value="{{$product->name}}" name="name"></td>
+                <td><input type="number" value="{{$product->price}}" name="price" step="0.01" min="0.00"></td>
+                <td><input type="number" value="{{$product->stock}}" name="stock" min="0"></td>
+                <td><input type="number" value="{{$product->size}}" name="size" step="0.5" min="0.00"></td>
+
+                <td><select name="gender" selected="{{$product->gender}}">
+                        @if ($product->gender =="male")
+                        <option value="male" selected>male</option>
+                        <option value="female">female</option>
+                        @else
+                        <option value="male">male</option>
+                        <option value="female" selected>female</option>
+                        @endif
+                    </select></td>
+                <td><input type="text" value="{{$product->imgPath}}" name="product_image"></td>
+                <td><button name="button" type="submit" onclick="toggleEditMode({{$product->id}})">Save</button></td>
             </tr>
+        </form>
         @empty
-            <td>No products</td>  
+        <td>No products</td>
         @endforelse
     </tbody>
 </table>

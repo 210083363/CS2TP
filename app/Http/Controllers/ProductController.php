@@ -10,9 +10,10 @@ use App\Models\User;
 
 class ProductController extends Controller
 {
-    public function manage() {
+    public function manage()
+    {
         $data = array();
-        if(Session::has('loginId')) {
+        if (Session::has('loginId')) {
             $data = Product::where('user_id', '=', Session::get('loginId'))->get();
         }
         return view('product.manage', compact('data'));
@@ -24,9 +25,37 @@ class ProductController extends Controller
         $data = Product::all();
         return view('products', compact('data'));
     }
+    public function updateProduct(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required|max:512',
+            'price' => 'required',
+            'stock' => 'required|min:0',
+            'size' => 'required',
+            'gender' => 'required'
+        ]);
+
+        $product = Product::where('id', '=', $request->id)->first();
+
+        if (!$product) return back()->with('fail', 'Product not found');
+
+        // echo $product->name;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->size = $request->size;
+        $product->gender = $request->gender;
+        // echo "Working";
+        $res = $product->save();
+
+        if ($res) return back()->with('success', 'Product updated successfully');
+        else return back()->with('fail', 'Unable to update product');
+    }
 
     public function addProduct(Request $request)
     {
+
         $request->validate([
             'name' => 'required|max:512',
             'price' => 'required',
@@ -36,7 +65,7 @@ class ProductController extends Controller
             'gender' => 'required'
         ]);
 
-        // If uploading images doesnt work
+        // // If uploading images doesnt work
         // echo ($request->allFiles());
         // echo ("<br>");
         // if ($request->hasFile('product_image')){
@@ -44,10 +73,10 @@ class ProductController extends Controller
         // }
 
         $path = $request->file('product_image')->store('products-images');
-        
+
         // echo $path;
         $product = new Product();
-        $product->user_id = Session::get('loginId');    
+        $product->user_id = Session::get('loginId');
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
@@ -57,8 +86,7 @@ class ProductController extends Controller
         // echo "Working";
         $res = $product->save();
 
-        if($res) return back()->with('success', 'Product added');
+        if ($res) return back()->with('success', 'Product added');
         else return back()->with('fail', 'Unable to add product');
-        
     }
 }

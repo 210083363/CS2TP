@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
@@ -31,21 +32,29 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required|min:0',
             'size' => 'required',
+            'file' => 'required',
             'gender' => 'required',
-            //'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
-        //$imageName = time().'.'.$request->image->extension();
-        //$request->image->storeAs('images', $imageName);
+        $imageName = time().'.'.$request->image->extension();
+        $path = file($request->product_image);
+        ->store('storage/products-images');
+        if ($request->hasFile('product_image')){
+            echo "fine";
+        }
 
+        $path = $request->file('product_image')->store("products-images");
+        
+        echo $path;
         $product = new Product();
-        $product->user_id = Session::get('loginId');
+        $product->user_id = Session::get('loginId');    
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->size = $request->size;
         $product->gender = $request->gender;
-        $product->imgPath = "implement";
+        $product->imgPath = $path;
+        echo "Working";
         $res = $product->save();
 
         if($res) return back()->with('success', 'Product added');

@@ -4,8 +4,8 @@
 
 @section('content')
 
-{{-- Form submission goes to web.php add-product function in the ProductController --}}
-<form action="{{route('add-product')}}" method="post">
+<form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
+    @csrf
     <h1>Manage your products</h1>
     @if(Session::has('success'))
     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -13,7 +13,6 @@
     @if(Session::has('fail'))
     <div class="alert alert-danger">{{Session::get('fail')}}</div>
     @endif
-    @csrf
     <table class="table">
         <thead>
             <th>Name</th>
@@ -30,13 +29,8 @@
                 <td><input type="number" class="form-control" placeholder="Price" name="price" step="0.01" min="0.00" value="{{old('price')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="stock" min="0" value="{{old('stock')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="size" step="0.5" min="0.00" value="{{old('size')}}"></td>
-                <td>
-                    <select class="form-control" name="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    </select>
-                </td>
-                <td><input type="file" name="image" id="image"></td>
+                <td><select class="form-control" name="gender"><option value="male">Male</option><option value="female">Female</option></select></td>
+                <td><input type="file" name="product_image" class="form-control"></td>
                 <td><button type="submit">Add product</button></td>
             </tr>
         </tbody>

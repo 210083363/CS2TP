@@ -4,6 +4,7 @@
 
 @section('content')
 
+<script type="text/javascript"  src="{{asset('app.js')}}"></script>
 <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
     @csrf
     <h1>Manage your products</h1>
@@ -58,15 +59,15 @@
     </thead>
     <tbody>
         @forelse($data as $product)
-            <tr>
+            <tr id="product_{{$product->id}}">
             <td>{{$product->id}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->stock}}</td>
-            <td>{{$product->size}}</td>
-            <td>{{$product->gender}}</td>
-            <td>{{$product->imgPath}}</td>
-            <td><button type="submit">Edit</button></td>
+            <td><input type="text" value="{{$product->name}}"></td>
+            <td><input type="text" value="{{$product->price}}"></td>
+            <td><input type="text" value="{{$product->stock}}"></td>
+            <td><input type="text" value="{{$product->size}}"></td>
+            <td><input type="text" value="{{$product->gender}}"></td>
+            <td><input type="text" value="{{$product->imgPath}}"></td>
+            <td><button type="submit" onclick="toggleEditMode({{$product->id}})">Edit</button></td>
             </tr>
         @empty
             <td>No products</td>  

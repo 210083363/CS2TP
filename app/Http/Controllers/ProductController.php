@@ -32,20 +32,20 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required|min:0',
             'size' => 'required',
-            'file' => 'required',
-            'gender' => 'required',
+            'product_image' => 'required|image',
+            'gender' => 'required'
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
-        $path = file($request->product_image);
-        ->store('storage/products-images');
-        if ($request->hasFile('product_image')){
-            echo "fine";
-        }
+        // If uploading images doesnt work
+        // echo ($request->allFiles());
+        // echo ("<br>");
+        // if ($request->hasFile('product_image')){
+        //     echo ("yes");
+        // }
 
-        $path = $request->file('product_image')->store("products-images");
+        $path = $request->file('product_image')->store('products-images');
         
-        echo $path;
+        // echo $path;
         $product = new Product();
         $product->user_id = Session::get('loginId');    
         $product->name = $request->name;
@@ -54,7 +54,7 @@ class ProductController extends Controller
         $product->size = $request->size;
         $product->gender = $request->gender;
         $product->imgPath = $path;
-        echo "Working";
+        // echo "Working";
         $res = $product->save();
 
         if($res) return back()->with('success', 'Product added');

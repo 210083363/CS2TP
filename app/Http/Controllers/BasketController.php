@@ -15,7 +15,7 @@ class BasketController extends Controller
     {
         // Get our cart and check its not empty
         $cart = Session::has('cart') ? Session::get('cart') : [];
-        if ( count($cart) == 0 ) return redirect('basket')->with('fail', "Checkout was unsuccessful, basket empty");
+        if (count($cart) == 0) return redirect('basket')->with('fail', "Checkout was unsuccessful, basket empty");
 
         // Keep track of the total value so we check again its correct
         $total_recount = 0;
@@ -25,20 +25,20 @@ class BasketController extends Controller
         // Process and validate each product in the cart, removes all invalid items and updates basket
         for ($i = 0; $i < count($cart); $i++) {
             $product = Product::where('id', '=', $cart[$i]['id'])->first();
-    
-            if( !$product ) {
+
+            if (!$product) {
                 $this->removeFromBasket($cart[$i]['id']);
                 $allValid = false;
                 continue;
             }
 
-            if ($cart[$i]['price']    ==  $product->price && 
-                $cart[$i]['quantity'] <=  $product->stock) 
-            {
-                $validProduct = array('id'=>$product->id, 'quantity'=>$cart[$i]['quantity'], 'price'=>$cart[$i]['price']);
+            if (
+                $cart[$i]['price']    ==  $product->price &&
+                $cart[$i]['quantity'] <=  $product->stock
+            ) {
+                $validProduct = array('id' => $product->id, 'quantity' => $cart[$i]['quantity'], 'price' => $cart[$i]['price']);
                 array_push($validated_products, $validProduct);
-            }
-            else {
+            } else {
                 $this->removeFromBasket($cart[$i]['id']);
                 $allValid = false;
                 continue;
@@ -47,7 +47,7 @@ class BasketController extends Controller
             $total_recount += $product->price * $cart[$i]['quantity'];
         }
 
-        if( $total_recount != $request->hidden_total || !$allValid ) return redirect('basket')->with('fail', "Checkout was unsuccessful, basket updated, {$total_recount}, {$request->hidden_total}, {$allValid}");
+        if ($total_recount != $request->hidden_total || !$allValid) return redirect('basket')->with('fail', "Checkout was unsuccessful, basket updated, {$total_recount}, {$request->hidden_total}, {$allValid}");
 
         $res = 0;
 
@@ -57,7 +57,7 @@ class BasketController extends Controller
         $order->save();
 
         // Create orders
-        foreach ( $validated_products as $product ) {
+        foreach ($validated_products as $product) {
             // Update Inventory
             $record = Product::where('id', $product['id'])->first();
             $record->stock = $record->stock - $product['quantity'];
@@ -78,7 +78,7 @@ class BasketController extends Controller
         return redirect('basket')->with('success', "Checkout was successful");
     }
 
-    public function clearBasket() 
+    public function clearBasket()
     {
         Session::pull('cart');
         return back();

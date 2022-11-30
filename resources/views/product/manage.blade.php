@@ -81,7 +81,7 @@
                         @endif
                     </select></td>
                 <td><input type="text" value="{{$product->imgPath}}" name="product_image"></td>
-                <td><button name="button" type="submit" onclick="toggleEditMode({{$product->id}})">Save</button></td>
+                <td><button name="button" type="submit" onclick="toggleEditMode('{{$product->id}}')">Save</button></td>
             </tr>
         </form>
         @empty

@@ -16,7 +16,19 @@
     <!-- header for search bar and basket/login/signup stuff
                 gonna do that l8r -->
 
-            <nav class = "navbar">
+<div class="header">
+    <ul>
+        <h2> STANCE </h2>
+         <li><b href="Login.html">Login</b></li>
+         <li><b href="Register.html">Register</b></li>
+          <li><b href="Basket.html">Basket</b></li>
+            </div>
+         </div>
+     </ul>
+</div>
+
+
+<nav class = "navbar">
               <div class="hamburger-menu"  >
                <div  class="line line-1"></div>
                <div  class="line line-2"></div>
@@ -36,16 +48,17 @@
                     <a href="#footer" class="nav-link">Contact us</a>
                 </li>
               </ul>
-            </nav>
+</nav>
 
 
 <div class ="row">
     <div class ="col-1">
      <h2> Stance</h2>
-     <h3> some description</h3>
-     <p> more info ig</p>
-     <button type ="button"> Shop Now <img src ="arrow.png">
-      </button>
+     <h3> Welcome to the launch of Stance!</h3>
+     <!-- <button type ="button"> Shop Now <img src ="arrow.png">
+      </button> -->
+    <button onclick = "window.location.href ='http://127.0.0.1:5500/Front-end%20files/ProductsPage.html';">Shop Now <img src ="arrow.png">
+    </button> 
     </div>
     <div class = "col-2">
       <img src ="shoe01 img.png" class="shoe1">
@@ -102,18 +115,67 @@
 
     <div id ="about-us"> <!-- refer to proj brief for about us page/section -->
         <h2> Stance </h2>
-        <h3> info about our target group and vision of Stance</h3>
+        <p>
+            We stand for something bigger than sneakers. 
+            We champion those who are fearlessly driven by their passions. 
+            We elevate sport. We do right by people and the planet. 
+            Together, we drive meaningful change in communities around the world. 
+            We Got Now.
+        </p>
         
     </div>
 
-    <div id = "footer">
-       <h2> Footer prolly include contact details (socials)</h2>
+    <!--<div id = "footer">
+      -<h2> Footer prolly include contact details (socials)</h2>
 
        <img src = "instagram icon.png" class = "instagram-icon">
        <img src ="twitter icon.png" class ="twitter-icon">
        <img src = "facebook icon.png" class = "facebook-icon">
-    </div>
+    </div> -->  
 
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div id="first-box" class = "box">
+                <div id="first-box-header">
+                    <h3>Email for Enquires</h3>
+                </div>
+                <div id="email-box">
+                    <p>
+                        For any enquires regarding the website <br>
+                        as well as problems with orders.
+                    </p>
+                </div>
+            </div>
+            <div id="second-box" class = "box">
+                <div id="second-box-header">
+                    <h3>STANCE</h3>
+                </div>
+                <div id="courses-box">
+                    <p>
+                        We stand for something bigger than sneakers. 
+                        We champion those who are fearlessly driven by their passions. 
+                        We elevate sport. We do right by people and the planet. 
+                        Together, we drive meaningful change in communities around the world. 
+                        We Got Now.
+                    </p>
+                </div>
+            </div>
+            <div id="third-box" class = "box">
+                <div id="third-box-header">
+                    <h3>Contact Emails</h3>
+                </div>
+                <div id="contact-box">
+                        <ul>
+                        <li>Email for Enquires:<br>
+                        <strong>stance-enquires.stance.ac.uk</strong></li>
+                        <li>Email for delivery support:<br>
+                        <strong>stance-delivery.stance.ac.uk</strong></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
             <script src="page1.js"> </script>
         </body>

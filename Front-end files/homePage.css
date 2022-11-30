@@ -1,5 +1,38 @@
 
 /* slideshow img and boxes*/
+/*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+}
+
+.header{
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;  
+    overflow: hidden;
+    background-color: rgb(84, 83, 83);
+}
+.header li{
+float: right;
+display: block;
+color: #c10303;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: large;
+font-family: sans-serif;
+}
+
+.header h2{
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    display:flex;
+    font-size: 40px;
+    font-family: sans-serif;
+}*/
 
 .row{
     padding-left: 10%;
@@ -149,7 +182,7 @@ button:hover{
    
 } 
 
-.instagram-icon{
+/*.instagram-icon{
     width:7%;
     position:absolute;
     right:0;
@@ -167,7 +200,7 @@ button:hover{
     width:7%;
     position: absolute;
     right:250px;
-}
+} */
 
 /*shop by category box*/
 .shop-by-category{
@@ -199,7 +232,7 @@ button:hover{
   padding: 15px;
   margin-top: -22px;
   color: rgb(155, 54, 54);
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-size: 70px;
   transition: 0.2s ease;
   border-radius:  100px 100px ;
@@ -243,7 +276,7 @@ button:hover{
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: rgb(193, 4, 4);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;

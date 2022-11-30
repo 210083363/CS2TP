@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!-- <script type="text/javascript" src="{{asset('app.js')}}"></script> -->
+<script type="text/javascript" src="{{asset('app.js')}}"></script>
 <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
     @csrf
     <h1>Manage your products</h1>
@@ -81,7 +81,8 @@
                         @endif
                     </select></td>
                 <td><input type="text" value="{{$product->imgPath}}" name="product_image"></td>
-                <td><button name="button" type="submit" onclick="toggleEditMode('{{$product->id}}')">Save</button></td>
+                <td><button name="button" type="submit">Save</button></td>
+                <!-- <td><button name="button" type="submit" onclick="toggleEditMode('{{$product->id}}')">Save</button></td> -->
             </tr>
         </form>
         @empty

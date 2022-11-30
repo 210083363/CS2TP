@@ -3,6 +3,8 @@
 @section('title', 'Welcome')
 
 @section('content')
+<script defer type="text/javascript" src="{{asset('app.js')}}"></script>
+<input type="text" name="search" id="search" placeholder="Search...">
 
 <table class="table">
   <thead>
@@ -16,7 +18,7 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="product-rows">
     @forelse($data as $product)
     <tr>
       <td>{{$product->name}}</td>

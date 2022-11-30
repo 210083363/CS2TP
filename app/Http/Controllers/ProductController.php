@@ -21,9 +21,8 @@ class ProductController extends Controller
 
     public function viewAllProducts()
     {
-        $data = array();
         $data = Product::all();
-        return view('products', compact('data'));
+        return view('products_f', compact('data'));
     }
     public function updateProduct(Request $request)
     {
@@ -55,7 +54,6 @@ class ProductController extends Controller
 
     public function addProduct(Request $request)
     {
-
         $request->validate([
             'name' => 'required|max:512',
             'price' => 'required',
@@ -72,7 +70,8 @@ class ProductController extends Controller
         //     echo ("yes");
         // }
 
-        $path = $request->file('product_image')->store('products-images');
+        $path = $request->file('product_image')->store('public/product-images');
+        $fileName = basename($path);
 
         // echo $path;
         $product = new Product();
@@ -82,7 +81,7 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->size = $request->size;
         $product->gender = $request->gender;
-        $product->imgPath = $path;
+        $product->imgPath = $fileName;
         // echo "Working";
         $res = $product->save();
 

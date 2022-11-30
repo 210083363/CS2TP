@@ -25,13 +25,13 @@ class BasketController extends Controller
         // Process and validate each product in the cart, removes all invalid items and updates basket
         for ($i = 0; $i < count($cart); $i++) {
             $product = Product::where('id', '=', $cart[$i]['id'])->first();
-
+            // Check if product exists
             if (!$product) {
                 $this->removeFromBasket($cart[$i]['id']);
                 $allValid = false;
                 continue;
             }
-
+            // Check if product is in stock and has the right price
             if (
                 $cart[$i]['price']    ==  $product->price &&
                 $cart[$i]['quantity'] <=  $product->stock
@@ -48,6 +48,7 @@ class BasketController extends Controller
         }
 
         if ($total_recount != $request->hidden_total || !$allValid) return redirect('basket')->with('fail', "Checkout was unsuccessful, basket updated, {$total_recount}, {$request->hidden_total}, {$allValid}");
+
 
         $res = 0;
 
@@ -106,6 +107,7 @@ class BasketController extends Controller
         for ($i = 0; $i < count($cart); $i++) {
             if ($cart[$i]['id'] == $request->hidden_id) {
                 $cart[$i]['quantity']++;
+                $cart[$i]['total'] = $cart[$i]['quantity'] * $cart[$i]['price'];
                 $productexists = true;
                 break;
             }

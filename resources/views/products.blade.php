@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th scope="col">Name</th>
+      <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Stock</th>
       <th scope="col">Size</th>
@@ -22,6 +23,7 @@
     @forelse($data as $product)
     <tr>
       <td>{{$product->name}}</td>
+      <td>{{$product->description}}</td>
       <td>{{$product->price}}</td>
       <td>{{$product->stock}}</td>
       <td>{{$product->size}}</td>

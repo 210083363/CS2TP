@@ -17,6 +17,7 @@
     <table class="table">
         <thead>
             <th>Name</th>
+            <th>Description</th>
             <th>Price</th>
             <th>Stock</th>
             <th>Size</th>
@@ -27,6 +28,7 @@
         <tbody>
             <tr>
                 <td><input type="text" class="form-control" placeholder="Name" name="name" value="{{old('name')}}"></td>
+                <td><input type="text" class="form-control" placeholder="Description" name="desc" value="{{old('desc')}}"></td>
                 <td><input type="number" class="form-control" placeholder="Price" name="price" step="0.01" min="0.00" value="{{old('price')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="stock" min="0" value="{{old('stock')}}"></td>
                 <td><input type="number" class="form-control" placeholder="0" name="size" step="0.5" min="0.00" value="{{old('size')}}"></td>
@@ -42,6 +44,7 @@
 </form>
 
 <span class="text-danger">@error('name') {{$message}} @enderror</span>
+<span class="text-danger">@error('desc') {{$message}} @enderror</span>
 <span class="text-danger">@error('price') {{$message}} @enderror</span>
 <span class="text-danger">@error('stock') {{$message}} @enderror</span>
 <span class="text-danger">@error('size') {{$message}} @enderror</span>
@@ -52,6 +55,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
+            <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
             <th scope="col">Size</th>
@@ -67,6 +71,7 @@
             <tr id="product_{{$product->id}}">
                 <td><input type="hidden" value="{{$product->id}}" name="id"></td>
                 <td><input type="text" value="{{$product->name}}" name="name"></td>
+                <td><input type="text" value="{{$product->desc}}" name="desc"></td>
                 <td><input type="number" value="{{$product->price}}" name="price" step="0.01" min="0.00"></td>
                 <td><input type="number" value="{{$product->stock}}" name="stock" min="0"></td>
                 <td><input type="number" value="{{$product->size}}" name="size" step="0.5" min="0.00"></td>

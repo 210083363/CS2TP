@@ -32,6 +32,7 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required|min:0',
             'size' => 'required',
+            'desc' => 'required',
             'gender' => 'required'
         ]);
 
@@ -41,6 +42,7 @@ class ProductController extends Controller
 
         // echo $product->name;
         $product->name = $request->name;
+        $product->desc = $request->desc;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->size = $request->size;
@@ -57,6 +59,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|max:512',
             'price' => 'required',
+            'desc' => 'required',
             'stock' => 'required|min:0',
             'size' => 'required',
             'product_image' => 'required|image',
@@ -77,6 +80,7 @@ class ProductController extends Controller
         $product = new Product();
         $product->user_id = Session::get('loginId');
         $product->name = $request->name;
+        $product->desc = $request->desc;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->size = $request->size;

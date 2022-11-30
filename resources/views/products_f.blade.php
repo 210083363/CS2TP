@@ -10,7 +10,7 @@
                 <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:100%">
                 <h1>{{$product->name}}</h1>
                 <p class="price">£{{$product->price}}</p>
-                <p> description about shoe</p>
+                <p>{{$product->desc}}</p>
                 <p><button>Add to cart</button></p>
             </div>
             @endforeach

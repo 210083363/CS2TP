@@ -23,8 +23,11 @@ class AuthController extends Controller
             'group' => 'required'
         ]);
 
-        echo $request->id;
-
+        $user = User::where('id', '=', $request->id)->first();
+        $user->group = $request->group;
+        $user->save();
+        
+        return back();
     }
 
     //

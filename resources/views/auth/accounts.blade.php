@@ -23,9 +23,9 @@
         @csrf
         <input type="hidden", value="{{$user->id}}" name='id'>
         <td><input type="number" value="{{$user->group}}" name="group"></td>
+        <td>{{$user->created_at}}</td>
         <td><input type="submit"></td>
       </form>
-      <td>{{$user->created_at}}</td>
     </tr>
     @empty
     <td>No products</td>

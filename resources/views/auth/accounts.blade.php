@@ -19,7 +19,11 @@
       <td>{{$user->id}}</td>
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
-      <td>{{$user->group}}</td>
+      <form>
+        @csrf
+        
+        <td><input type="number" value="{{$user->group}}" name="group">{{$user->group}}</td>
+      </form>
       <td>{{$user->created_at}}</td>
     </tr>
     @empty

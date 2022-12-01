@@ -17,28 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="hamburger-menu">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
-        </div>
 
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="HomePage.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="NewProductsPage.html" class="nav-link">Products Page</a>
-            </li>
-            <li class="nav-item">
-                <a href="#about" class="nav-link">About us</a>
-            </li>
-            <li class="nav-item">
-                <a href="#contact-us" class="nav-link">Contact us</a>
-            </li>
-        </ul>
-    </nav>
     <div class="container">
         <div class="title">Sign-Up</div>
         <div class="content">

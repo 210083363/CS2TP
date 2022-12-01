@@ -53,7 +53,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Price</th>
@@ -69,7 +68,7 @@
         <form action="{{route('update-product', $product->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <tr id="product_{{$product->id}}">
-                <td><input type="hidden" value="{{$product->id}}" name="id"></td>
+                <input type="hidden" value="{{$product->id}}" name="id">
                 <td><input type="text" value="{{$product->name}}" name="name"></td>
                 <td><input type="text" value="{{$product->desc}}" name="desc"></td>
                 <td><input type="number" value="{{$product->price}}" name="price" step="0.01" min="0.00"></td>
@@ -85,9 +84,8 @@
                         <option value="female" selected>female</option>
                         @endif
                     </select></td>
-                <td><input type="text" value="{{$product->imgPath}}" name="product_image"></td>
+                <td><input type="file" name="product_image" id="img" style="display:none;"><label for="img">{{$product->imgPath}}</label></td>
                 <td><button name="button" type="submit">Save</button></td>
-                <!-- <td><button name="button" type="submit" onclick="toggleEditMode('{{$product->id}}')">Save</button></td> -->
             </tr>
         </form>
         @empty

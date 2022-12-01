@@ -17,6 +17,7 @@
             <input type='hidden' name='hidden_id' value="{{$product->id}}" />
             <input type='hidden' name='hidden_name' value="{{$product->name}}" />
             <input type='hidden' name='hidden_price' value="{{$product->price}}" />
+            <input type='hidden' name='hidden_image' value="{{$product->imgPath}}" />
             <p><button type="submit" value="Add to cart" @if($product->stock == 0) disabled='disabled' @endif>Add to cart</button></p>
 
         </form>

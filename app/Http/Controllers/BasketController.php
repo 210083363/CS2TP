@@ -119,7 +119,8 @@ class BasketController extends Controller
                 'name' => $request->hidden_name,
                 'price' => $request->hidden_price,
                 'quantity' => 1,
-                'total' => $request->hidden_price * 1
+                'total' => $request->hidden_price * 1,
+                'image' => $request->hidden_image
             ];
         }
         //Save cart to session

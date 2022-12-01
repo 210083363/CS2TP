@@ -7,7 +7,7 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Product ID</th>
+            <th scope="col">Product</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
@@ -19,7 +19,7 @@
         @php($total = 0)
         @forelse($data as $product)
         <tr>
-            <td>{{$product['id']}}</td>
+            <td><img style='height:5rem;'src={{asset('storage/product-images/'.$product['image'])}}></td>
             <td>{{$product['name']}}</td>
             <td>{{$product['price']}}</td>
             <!-- TODO: Add quantity -->

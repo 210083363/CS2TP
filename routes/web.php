@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,8 @@ Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add
 Route::post('/update-product', [ProductController::class, 'updateProduct'])->name('update-product'); // middlware should be isAdmin
 
 Route::get('/products', [ProductController::class, 'viewAllProducts']);
-Route::get('/orders', function () {
-    view('welcome');
-});
+Route::get('/orders', [OrderController::class, 'viewOrders']);
+
 
 Route::get('/basket', [BasketController::class, 'viewBasket'])->name('basket')->middleware('isLoggedIn');
 Route::post('/add-to-basket', [BasketController::class, 'addToBasket'])->name('add-to-basket'); //->middleware('is');

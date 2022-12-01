@@ -20,6 +20,7 @@
                 <td>
                     @if ($data->group > 0)
                         <a href="{{url('manage')}}">Manage Products</a><br>
+                        <a href="{{url('accounts')}}">View Accounts</a><br>
                     @endif
                     <a href="{{url('products')}}">Products</a><br>
                     <a href="{{url('orders')}}">Orders</a><br>

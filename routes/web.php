@@ -25,6 +25,7 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
+Route::get('/accounts', [AuthController::class, 'viewAccounts']);
 
 
 Route::get('/home', [AuthController::class, 'home'])->middleware('isLoggedIn');

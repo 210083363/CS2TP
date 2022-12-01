@@ -33,13 +33,26 @@ class ProductController extends Controller
             'stock' => 'required|min:0',
             'size' => 'required',
             'desc' => 'required',
-            'gender' => 'required'
+            'gender' => 'required',
+
         ]);
 
+        // echo $request->name;
+        echo $request->file('product_image') == null;
         $product = Product::where('id', '=', $request->id)->first();
 
         if (!$product) return back()->with('fail', 'Product not found');
+        if ($product->name == $request->name && $product->desc == $request->desc && $product->price == $request->price && $product->stock == $request->stock && $product->size == $request->size && $product->gender == $request->gender && $request->file('product_image') == null)
+            return back()->with('fail', 'No changes made');
 
+        if ($request->file('product_image') != null) {
+            $request->validate([
+                'product_image' => 'required|image',
+            ]);
+            $path = $request->file('product_image')->store('public/product-images');
+            $fileName = basename($path);
+            $product->imgPath = $fileName;
+        }
         // echo $product->name;
         $product->name = $request->name;
         $product->desc = $request->desc;

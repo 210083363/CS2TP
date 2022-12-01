@@ -84,7 +84,11 @@
                         <option value="female" selected>female</option>
                         @endif
                     </select></td>
-                <td><input type="file" name="product_image" id="img" style="display:none;"><label for="img">{{$product->imgPath}}</label></td>
+                <td>
+                    <!-- <label for="getFile">{{$product->imgPath}}</label><input type="button" value="Change image" style="display:block;width:105px; height:28px;" onclick="document.getElementById('getFile').click()"> -->
+                    <input type='file' id="getFile" class="hidden" name="product_image">
+                    <!-- <label for="getFile" >Select new image</label> -->
+                </td>
                 <td><button name="button" type="submit">Save</button></td>
             </tr>
         </form>

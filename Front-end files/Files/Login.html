@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title Log-In Page ></title>
+    <link rel="stylesheet" href="LOG-style.css">
+    <link rel = "stylesheet" href = "page1.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <script defer src="page1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+   <body>
+
+    <nav class = "navbar">
+      <div class="hamburger-menu"  >
+       <div  class="line line-1"></div>
+       <div  class="line line-2"></div>
+       <div  class="line line-3"></div>
+      </div>
+  
+      <ul class="nav-list">
+        <li class="nav-item">
+            <a href="HomePage.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="NewProductsPage.html" class="nav-link">Products Page</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">About us</a>
+        </li> 
+        <li class="nav-item">
+            <a href="#" class="nav-link">Contact us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-log">
+      <div class="title">Log-In</div>
+      <div class="content">
+        <form action="#">
+          <div class="user-details">
+            
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input type="text" placeholder="Enter your username" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="text" placeholder="Enter your password" required>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Log-In">
+          </div>
+          <div class="existing-account-log">
+              <span class="under-button">Dont have an account?</span>
+              <span class="under-button-link">
+                  <button onclick ="window.location.href = 'Sign up.html'" class="button-link">Sign-Up</button>
+              </span>
+          </div>
+        </form>
+      </div>
+      
+     
+    </body>
+    <footer class="footer">
+        <div class="footer-content">
+            <div id="first-box" class = "box">
+                <div id="first-box-header">
+                    <h3>Email for Enquires</h3>
+                </div>
+                <div id="email-box">
+                    <p>
+                        For any enquires regarding the website <br>
+                        as well as problems with orders.
+                    </p>
+                </div>
+            </div>
+            <div id="second-box" class = "box">
+                <div id="second-box-header">
+                    <h3>STANCE</h3>
+                </div>
+                <div id="courses-box">
+                    <p>
+                        We stand for something bigger than sneakers. <br>
+                        We champion those who are fearlessly driven by their passions. <br>
+                        We elevate sport. <br>
+                        
+                    </p>
+                </div>
+            </div>
+            <div id="third-box" class = "box">
+                <div id="third-box-header">
+                    <h3>Contact Emails</h3>
+                </div>
+                <div id="contact-box">
+                        <ul>
+                        <li>Email for Enquires:<br>
+                        <strong>stance-enquires.stance.ac.uk</strong></li>
+                        <li>Email for delivery support:<br>
+                        <strong>stance-delivery.stance.ac.uk</strong></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </html>

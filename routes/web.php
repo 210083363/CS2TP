@@ -26,9 +26,9 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
 Route::get('/accounts', [AuthController::class, 'viewAccounts']);
+Route::post('/update-account', [AuthController::class, 'updateGroup'])->name('update-account');
 
-
-Route::get('/home', [AuthController::class, 'home'])->middleware('isLoggedIn');
+Route::get('/home', [AuthController::class, 'home']);//->middleware('isLoggedIn');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/manage', [ProductController::class, 'manage'])->middleware('isLoggedIn'); // middlware should be isAdmin

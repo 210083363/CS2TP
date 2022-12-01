@@ -12,8 +12,19 @@ class AuthController extends Controller
 {
 
     public function viewAccounts() {
-        $data = array();
+        $data = User::all();
         return view('auth.accounts', compact('data'));
+    }
+
+    public function updateGroup(Request $request) {
+        
+        $request->validate([
+            'id' => 'required',
+            'group' => 'required'
+        ]);
+
+        echo $request->id;
+
     }
 
     //

@@ -34,7 +34,6 @@
             </li>
         </ul>
     </nav>
-    <p>hid</p>
     @yield('content')
 </body>
 

@@ -1,0 +1,439 @@
+
+.row{
+    padding-left: 10%;
+    padding-top: 15%;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 25px;
+
+}
+.col-1{
+    flex-basis:40%;
+    top:-100px;
+}
+
+.col-1 h2{
+    font-size: 52px;
+    padding-top: -150px;
+    font-family:"Dosis", sans-serif;
+}
+.col-1 h3{
+    font-size: 30px;
+    font-weight:100;
+
+}
+.col-2{
+    position: relative;
+    flex-basis:60%;
+    display: flex;
+    align-items:center;
+    top:-100px;
+}
+.shoe1{
+    width: 100%;
+    padding-top:-40%;
+}
+/*------------------Button----------------*/
+button{
+    width: 140px;
+    border: 0;
+    padding: 12px 10px;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(to right, #ff3527, #3a3939);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: width 0.5s;
+    font-family:"Dosis", sans-serif;
+    font-size: 17px;
+}
+
+button img{
+    width: 30px;
+    display:none;
+}
+button:hover img{
+    display:block;
+
+}
+button:hover{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family:"Dosis", sans-serif;
+}
+
+
+
+/* ------------about us section------------*/
+#about-us{
+    padding-top: 5%;
+    width:100%;
+    padding-left: 2%;
+
+}
+
+#about-us h2{
+    font-size: 52px;
+    font-family:"Dosis", sans-serif;
+}
+#about-us h3{
+    float:left;
+    font-family:"Dosis";
+    font-size: 30px;
+    font-weight:400;
+
+}
+
+
+/*---------------Best seller section------------*/
+.best-sellers h2{
+    padding-top: 1%;
+    padding-left: 2%;
+    font-family: "Dosis";
+    font-size: 45px;
+}
+
+
+.best-seller-1{
+    width:40%;
+    padding-left: 10%;
+    margin-left: -100px;
+    text-align: justify;
+    padding-top: 20px;
+
+}
+
+.best-seller-2{
+    width:40%;
+    padding-left:10%;
+    margin-left: -130px;
+    text-align: justify;
+
+}
+
+.best-seller-3{
+    width:40%;
+    padding-left:10%;
+    margin-left: -130px;
+    text-align: justify;
+} 
+
+.best-sellers h3{
+    font-weight:100%;
+    padding-left: 60px;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+.best-sellers h4{
+    font-weight:100%;
+    padding-left: 65px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color:#949494;
+}
+
+
+/*Footer stuff*/
+
+
+.footer-content {
+    display:flex;
+    justify-content: space-between;
+    background: rgb(104, 103, 103);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position:relative;
+    padding-right: 2rem;
+    padding-left: 7rem;
+    margin-top: 150px;
+    align-items: center;
+}
+
+.footer-content > div {
+    flex: 1;
+}
+
+@media only screen and (max-width: 1000px) {
+    .footer-content {
+        flex-direction: column;
+        
+    }
+
+    .footer-content > div {
+        text-align: center !important;
+        border: none !important;
+    }
+    
+}
+#second-box{
+    border-color: #bd271cd7;
+    border-width: 10px;
+    border-left: double;
+    border-right:double;
+    text-align: center;
+    }
+    #third-box{
+      padding-left: 7rem;
+     
+    }
+
+
+/*----------------------- old Slideshow------------------------->
+
+
+/* Slideshow container 
+.slideshow-container {
+  max-width: 60%;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons 
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 5%;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(155, 54, 54);
+  font-size: 70px;
+  transition: 0.2s ease;
+  border-radius:  100px 100px ;
+  user-select: none;
+}
+
+/* Position the "next button" to the right 
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  right:-30%;
+}
+
+.prev {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    left:-30%;
+}
+
+
+/* On hover, add a black background color with a little bit see-through 
+.prev:hover, .next:hover {
+  background-color: rgba(141, 137, 137, 0.8);
+}
+
+/* Caption text 
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* The dots/bullets/indicators 
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation 
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  /* On smaller screens, decrease text size 
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px} } */
+
+/*----------------------new slideshow test----------------*/
+.slider{
+	position: relative;
+	width: 100%;
+    height: 90%;
+	z-index: 3;
+}
+.myslide{
+	height: 655px;
+	display: flex;
+	overflow: hidden;
+	z-index:3;
+}
+
+.prev, .next{
+	position: absolute;
+	top: 20%;
+	transform: translate(0, -50%);
+	font-size: 50px;
+	padding: 15px;
+    margin-top:150px;
+	cursor: pointer;
+	color: rgb(3, 3, 3);
+	transition: 0.1s;
+	user-select: none;
+}
+.prev:hover, .next:hover{
+	color: #a30505; 
+}
+.next{
+	right: 0;
+}
+.dotsbox{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 20px;
+	cursor: pointer;
+}
+.dot{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.active, .dot:hover{
+	border-color: #a30505; 
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+.txt{
+	position: absolute;
+	color: rgb(254, 0, 0);
+	letter-spacing: 2px;
+	line-height: 35px;
+	top: 40%;
+	left: 15%;
+	-webkit-animation-name: posi;
+  	-webkit-animation-duration: 2s;
+  	animation-name: posi;
+  	animation-duration: 2s;
+	z-index: 3;
+}
+
+@-webkit-keyframes posi {
+  from {left: 25%;}
+  to {left: 15%;}
+}
+
+
+@keyframes posi {
+  from {left: 25%;}
+  to {left: 15%;}
+}
+
+.txt h1{
+	color: #f60000;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+.txt p{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/*-------------Header--------------------*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+}
+
+.header{
+    text-align: center;  
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+
+.header li{
+float: right;
+display: block;
+color: #ffffff;
+padding: 0 16px;
+font-size: 20px;
+font-family: "Dosis", sans-serif ;
+cursor: pointer;
+
+}
+
+.header h2{
+    text-align: center;
+    padding-top:30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-family: "Dosis", sans-serif ;
+    cursor: pointer;
+    font-weight: 700;
+
+}
+
+.header li b{
+    float: right;
+    display: block;
+    color: #ffffff;
+    padding: 0 16px;
+    font-size: 20px;
+    font-family: "Dosis", sans-serif ;
+    cursor: pointer;
+
+}
+
+.header-link{
+    text-decoration: none;
+    font-size:22px;
+    color:#eee;
+    font-weight:300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding:3px 0;
+    font-weight:700;
+}
+
+
+ 
+

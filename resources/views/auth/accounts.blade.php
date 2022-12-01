@@ -19,10 +19,11 @@
       <td>{{$user->id}}</td>
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
-      <form>
+      <form action="{{route('update-account')}}" method="post" enctype="multipart/form-data"> 
         @csrf
-        
-        <td><input type="number" value="{{$user->group}}" name="group">{{$user->group}}</td>
+        <input type="hidden", value="{{$user->id}}" name='id'>
+        <td><input type="number" value="{{$user->group}}" name="group"></td>
+        <td><input type="submit"></td>
       </form>
       <td>{{$user->created_at}}</td>
     </tr>

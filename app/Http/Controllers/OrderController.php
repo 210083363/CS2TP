@@ -19,7 +19,10 @@ class OrderController extends Controller
         $user = User::where('id','=',Session::get('loginId'))->first();
         $data = [];
         if (Session::has('loginId')) {
-            $orders = Order::where('user_id', '=', Session::get('loginId'))->get();
+            $orders = array();
+            if ($user->group > 1) $orders = Order::all();
+            else $orders = Order::where('user_id', '=', Session::get('loginId'))->get();
+
             foreach ($orders as $order) {
                 $order_arr = [];
                 $order_arr['id'] = $order->id;

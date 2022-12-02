@@ -5,13 +5,14 @@
 @section('content')
 <script type="text/javascript" src="{{asset('app.js')}}"></script>
 <link rel="stylesheet" href="css/products.css">
+<input type="text" name="search" id="search" placeholder="Search...">
 
 <div class="cards">
     @forelse($data as $product)
 
     <div class="card">
         <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:20rem">
-        <h1 style="font-family: arial;">{{$product->name}}</h1>
+        <h1 style="font-family: arial;" name="product_name">{{$product->name}}</h1>
         <p class="price">£{{$product->price}}</p>
         <p>{{$product->desc}}</p>
         <form action="{{route('add-to-basket')}}" method="post">

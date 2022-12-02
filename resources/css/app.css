@@ -6,6 +6,10 @@
     font-family: arial;
 }
 
+.manage_products {
+    max-width: 0;
+}
+
 .price {
     color: grey;
     font-size: 22px;

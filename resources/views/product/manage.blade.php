@@ -98,6 +98,59 @@
     </tbody>
 </table>
 
+<link rel="stylesheet" href="css/basket.css">
+<div class="container-log manage_product" style="max-width:60rem;">
+    <div class="title"><h4>Manage Products</h4></div>
+    <br>
+    <table class="fn_table_manage">
+      <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Size</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Image</th>
+            <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @forelse($data as $product)
+        <form action="{{route('update-product', $product->id)}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <tr id="product_{{$product->id}}">
+                <input type="hidden" value="{{$product->id}}" name="id">
+                <td><input type="text" value="{{$product->name}}" name="name" style="width:10rem;"></td>
+                <td><input type="text" value="{{$product->desc}}" name="desc" style="width:10rem;"></td>
+                <td><input type="number" value="{{$product->price}}" name="price" style="width:5rem;" step="0.01" min="0.00"></td>
+                <td><input type="number" value="{{$product->stock}}" name="stock" style="width:5rem;" min="0"></td>
+                <td><input type="number" value="{{$product->size}}" name="size" style="width:5rem;" step="0.5" min="0.00"></td>
+
+                <td><select name="gender" selected="{{$product->gender}}">
+                        @if ($product->gender =="male")
+                        <option value="male" selected>male</option>
+                        <option value="female">female</option>
+                        @else
+                        <option value="male">male</option>
+                        <option value="female" selected>female</option>
+                        @endif
+                    </select></td>
+                <td>
+                    <!-- <label for="getFile">{{$product->imgPath}}</label><input type="button" value="Change image" style="display:block;width:105px; height:28px;" onclick="document.getElementById('getFile').click()"> -->
+                    <input type='file' id="getFile" class="hidden" name="product_image" style="width:15rem;">
+                    <!-- <label for="getFile" >Select new image</label> -->
+                </td>
+                <td><button name="button" type="submit">Save</button></td>
+            </tr>
+        </form>
+        @empty
+        <td>No products</td>
+        @endforelse
+      </tbody>
+  </table>
+</div>
+
 <a href="{{url('home')}}"><button>Home</button></a>
 <a href="{{url('products')}}"><button>Products</button></a>
 

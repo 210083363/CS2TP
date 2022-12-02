@@ -41,7 +41,9 @@
    </table>
 </div>
 @empty
-<td>No orders</td>
+<div class="container-log">
+  <div class="title">No orders</h4></div>
+</div>
 @endforelse 
 
 @endsection

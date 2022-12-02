@@ -17,8 +17,11 @@ use App\Http\Controllers\OrderController;
 |
 */
 
+// Route::get('/', function () {
+//     return redirect('home');
+// });
 Route::get('/', function () {
-    return redirect('home');
+    return view('welcome');
 });
 
 Route::get('/login', [AuthController::class, 'login']);
@@ -28,7 +31,7 @@ Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-us
 Route::get('/accounts', [AuthController::class, 'viewAccounts']);
 Route::post('/update-account', [AuthController::class, 'updateGroup'])->name('update-account');
 
-Route::get('/home', [AuthController::class, 'home']);//->middleware('isLoggedIn');
+Route::get('/home', [AuthController::class, 'home']); //->middleware('isLoggedIn');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/manage', [ProductController::class, 'manage'])->middleware('isLoggedIn'); // middlware should be isAdmin

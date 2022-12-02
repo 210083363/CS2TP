@@ -37,8 +37,30 @@
 
 
 /*------------------Button----------------*/
+form .fn_button_big {
+    height: 45px;
+    margin: 35px 0;
+}
 
-button {
+form .fn_button_big input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #bd271cd7, #3a3939);
+}
+
+form .fn_button_big input:hover {
+    background: linear-gradient(-135deg, #bd271cd7, #3a3939);
+}
+
+.fn_button {
     width: 140px;
     border: 0;
     padding: 12px 10px;
@@ -52,22 +74,36 @@ button {
     font-size: 17px;
 }
 
-button img {
+.button-link {
+    height: 100%;
+    width: 13%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #bd271cd7, #3a3939);
+}
+.button-link img {
     width: 30px;
     display: none;
 }
 
-button:hover img {
+.button-link:hover img {
     display: block;
 }
 
-button:hover {
+.button-link:hover {
     width: 160px;
     /* display: flex;
     align-items: center;
     justify-content: space-between; */
     font-family: "Dosis", sans-serif;
 }
+
 
 
 /* ------------about us section------------*/
@@ -464,3 +500,7 @@ button:hover {
     padding: 3px 0;
     font-weight: 700;
 }
+
+/* .col-sm{
+    
+} */

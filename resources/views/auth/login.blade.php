@@ -29,7 +29,7 @@
                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                 </div>
             </div>
-            <div class="button">
+            <div class="fn_button_big">
                 <input type="submit" value="Login">
             </div>
         </form>

@@ -81,7 +81,7 @@
                 <input id="checkbox" type="checkbox" required />
                 <label for="checkbox"> By signing up you agree to these <a href="#">Terms and Conditions</a>.</label>
             </div>
-            <div class="button">
+            <div class="fn_button_big">
                 <input type="submit" value="Create account">
 
             </div>

@@ -3,7 +3,7 @@
 @section('title', 'Basket')
 
 @section('content')
-
+ <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
 <div class="container">
     <div class="row shadow p-3 mb-5 bg-white rounded"">
         <div class="well">

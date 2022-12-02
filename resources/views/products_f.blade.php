@@ -8,7 +8,7 @@
 <div class="cards">
     @forelse($data as $product)
     <div class="card">
-        <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:100%">
+        <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:25rem">
         <h1>{{$product->name}}</h1>
         <p class="price">£{{$product->price}}</p>
         <p>{{$product->desc}}</p>

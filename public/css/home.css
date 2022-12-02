@@ -18,6 +18,8 @@ body {
     /* padding: 10px; */
     background: linear-gradient(135deg, #e6e5e5d7, #979595);
     background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
     /* flex-wrap: wrap; */
 }
 
@@ -238,9 +240,13 @@ form .fn_button_big input:hover {
 
 /*Footer stuff*/
 
-/* .footer {
-    background-color: white;
-} */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    /* Footer height */
+}
 
 .footer-content {
     display: flex;

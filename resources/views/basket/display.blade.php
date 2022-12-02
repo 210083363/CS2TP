@@ -3,12 +3,12 @@
 @section('title', 'Basket')
 
 @section('content')
- <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
- <link rel="stylesheet" href="css/basket.css">
- <div class="container-log">
-      <div class="title">Basket</div>
-      <br>
-      <table class="fn_table">
+<!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
+<link rel="stylesheet" href="css/basket.css">
+<div class="container-log">
+    <div class="title">Basket</div>
+    <br>
+    <table class="fn_table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Product</th>
@@ -23,22 +23,22 @@
             @php($total = 0)
             @forelse($data as $product)
             <tr>
-                
-                <div class = "text">
-                <td><img style='width:100%;' src="{{asset('storage/product-images/'.$product['image'])}}"></td>
-                <td>{{$product['name']}}</td>
-                <td>{{$product['price']}}</td>
-                <td class="fn_quantity">
-                    <a href="{{route('updateQuantity',['add',$product['id']])}}"><button class="add" style="background-color: forestgreen;">+</button></a>
-                    {{$product['quantity']}}
-                    <a href="{{route('updateQuantity',['deduct',$product['id']])}}"><button class="minus" style="background-color: red;">-</button></a>
-                </td>
-            </div>
+
+                <div class="text">
+                    <td><img style='width:100%;' src="{{asset('storage/product-images/'.$product['image'])}}"></td>
+                    <td>{{$product['name']}}</td>
+                    <td>{{$product['price']}}</td>
+                    <td class="fn_quantity">
+                        <a href="{{route('updateQuantity',['add',$product['id']])}}"><button class="add" style="background-color: forestgreen;">+</button></a>
+                        {{$product['quantity']}}
+                        <a href="{{route('updateQuantity',['deduct',$product['id']])}}"><button class="minus" style="background-color: red;">-</button></a>
+                    </td>
+                </div>
             </tr>
-            @php($total += $product['total']) 
+            @php($total += $product['total'])
             @empty
-                <td>No products</td>
-            @endforelse 
+            <td>No products</td>
+            @endforelse
 
             <td></td>
             <td></td>
@@ -52,7 +52,7 @@
                     <form action="{{route('checkout-cart')}}" method="post">
                         @csrf
                         <input type='hidden' name='hidden_total' value="{{$total}}" />
-                        <button type="submit">Checkout</button>
+                        <button type="submit" class="form-submits">Checkout</button>
                     </form>
                 </td>
             </tr>

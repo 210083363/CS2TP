@@ -28,7 +28,7 @@
             <div id="header-sub">
                 <li><a href="{{url('login')}}" class="header-link">LOGIN</a></li>
                 <li><a href="{{url('register')}}" class="header-link">SIGN UP</a></li>
-                <li><a href="Basket.html" class="header-link">BASKET</a></li>
+                <li><a href="{{url('basket')}}" class="header-link">BASKET</a></li>
             </div>
         </ul>
 

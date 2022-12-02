@@ -4,12 +4,14 @@
 
 @section('content')
 <script type="text/javascript" src="{{asset('app.js')}}"></script>
+<link rel="stylesheet" href="css/products.css">
 
 <div class="cards">
     @forelse($data as $product)
+
     <div class="card">
-        <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:25rem">
-        <h1>{{$product->name}}</h1>
+        <img src="{{asset('storage/product-images/'.$product->imgPath)}}" alt="shoe1" style="width:20rem">
+        <h1 style="font-family: arial;">{{$product->name}}</h1>
         <p class="price">£{{$product->price}}</p>
         <p>{{$product->desc}}</p>
         <form action="{{route('add-to-basket')}}" method="post">
@@ -18,7 +20,7 @@
             <input type='hidden' name='hidden_name' value="{{$product->name}}" />
             <input type='hidden' name='hidden_price' value="{{$product->price}}" />
             <input type='hidden' name='hidden_image' value="{{$product->imgPath}}" />
-            <p><button type="submit" value="Add to cart" @if($product->stock == 0) disabled='disabled' @endif>Add to cart</button></p>
+            <p><button class="cart_button" type="submit" value="Add to cart" @if($product->stock == 0) disabled='disabled' @endif>Add to cart</button></p>
 
         </form>
     </div>

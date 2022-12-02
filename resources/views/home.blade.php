@@ -18,8 +18,8 @@
 <div class="header">
     <ul>
         <h2> STANCE </h2>
-        <li><a href="Login.html" class = "header-link">LOGIN</a></li>
-        <li><a href="Sign up.html" class = "header-link">SIGN UP</a></li>
+        <li><a href="{{url('login')}}" class = "header-link">LOGIN</a></li>
+        <li><a href="{{url('register')}}" class = "header-link">SIGN UP</a></li>
         <li><a href="Basket.html" class = "header-link">BASKET</a></li>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">Home</a>
                 <li class="nav-item">
-                    <a href="NewProductsPage.html" class="nav-link">Products Page</a>
+                    <a href="{{url('products')}}" class="nav-link">Products Page</a>
                 </li>
                 <li class="nav-item">
                     <a href="#about-us" class="nav-link">About us</a>
@@ -54,7 +54,7 @@
          <h3> Welcome to the launch of Stance!</h3>
             <!--<button type ="button"> Shop Now <img src ="arrow.png">
          </button>-->
-         <button onclick ="window.location.href = 'NewProductsPage.html'" >Shop Now<img src = "images/arrow.png"></button>
+         <button onclick ="window.location.href = '{{url('products')}}'" >Shop Now<img src = "images/arrow.png"></button>
      </div>
      <div class = "col-2">
          <img src ="images/shoe01 img.png" class="shoe1">

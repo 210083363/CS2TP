@@ -5,7 +5,14 @@
 @section('content')
 
 <script type="text/javascript" src="{{asset('app.js')}}"></script>
-<form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
+
+<span class="text-danger">@error('name') {{$message}} @enderror</span>
+<span class="text-danger">@error('desc') {{$message}} @enderror</span>
+<span class="text-danger">@error('price') {{$message}} @enderror</span>
+<span class="text-danger">@error('stock') {{$message}} @enderror</span>
+<span class="text-danger">@error('size') {{$message}} @enderror</span>
+<span class="text-danger">@error('gender') {{$message}} @enderror</span>
+{{-- <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
     @csrf
     <h1>Manage your products</h1>
     @if(Session::has('success'))
@@ -42,13 +49,6 @@
         </tbody>
     </table>
 </form>
-
-<span class="text-danger">@error('name') {{$message}} @enderror</span>
-<span class="text-danger">@error('desc') {{$message}} @enderror</span>
-<span class="text-danger">@error('price') {{$message}} @enderror</span>
-<span class="text-danger">@error('stock') {{$message}} @enderror</span>
-<span class="text-danger">@error('size') {{$message}} @enderror</span>
-<span class="text-danger">@error('gender') {{$message}} @enderror</span>
 
 <table class="table">
     <thead>
@@ -96,12 +96,51 @@
         <td>No products</td>
         @endforelse
     </tbody>
-</table>
+
+    <a href="{{url('home')}}"><button>Home</button></a>
+<a href="{{url('products')}}"><button>Products</button></a>
+</table> --}}
 
 <link rel="stylesheet" href="css/basket.css">
 <div class="container-log manage_product" style="max-width:60rem;">
     <div class="title"><h4>Manage Products</h4></div>
     <br>
+    <form action="{{route('add-product')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @if(Session::has('success'))
+        <div class="alert alert-success">{{Session::get('success')}}</div>
+        @endif
+        @if(Session::has('fail'))
+        <div class="alert alert-danger">{{Session::get('fail')}}</div>
+        @endif
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Size</th>
+                <th>Gender</th>
+                <th>Image</th>
+                <th scope="col"></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" placeholder="Name" name="name" style="width:10rem;" value="{{old('name')}}"></td>
+                    <td><input type="text" class="form-control" placeholder="Description" name="desc" style="width:10rem;" value="{{old('desc')}}"></td>
+                    <td><input type="number" class="form-control" placeholder="Price" name="price" style="width:5rem;" step="0.01" min="0.00" value="{{old('price')}}"></td>
+                    <td><input type="number" class="form-control" placeholder="0" name="stock" style="width:5rem;" min="0" value="{{old('stock')}}"></td>
+                    <td><input type="number" class="form-control" placeholder="0" name="size" style="width:5rem;" step="0.5" min="0.00" value="{{old('size')}}"></td>
+                    <td><select class="form-control" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select></td>
+                    <td><input type="file" name="product_image" class="form-control" style="width:15rem;"></td>
+                    <td><button type="submit">Add product</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
     <table class="fn_table_manage">
       <thead class="thead-dark">
         <tr>
@@ -150,8 +189,5 @@
       </tbody>
   </table>
 </div>
-
-<a href="{{url('home')}}"><button>Home</button></a>
-<a href="{{url('products')}}"><button>Products</button></a>
 
 @endsection

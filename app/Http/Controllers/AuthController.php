@@ -11,13 +11,15 @@ use App\Models\User;
 class AuthController extends Controller
 {
 
-    public function viewAccounts() {
+    public function viewAccounts()
+    {
         $data = User::all();
         return view('auth.accounts', compact('data'));
     }
 
-    public function updateGroup(Request $request) {
-        
+    public function updateGroup(Request $request)
+    {
+
         $request->validate([
             'id' => 'required',
             'group' => 'required'
@@ -26,20 +28,22 @@ class AuthController extends Controller
         $user = User::where('id', '=', $request->id)->first();
         $user->group = $request->group;
         $user->save();
-        
+
         return back();
     }
 
     //
-    public function login() {
+    public function login()
+    {
         return view('auth.login');
     }
 
-    public function register() {
+    public function register()
+    {
         return view('auth.register');
     }
 
-    public function loginUser(Request $request) 
+    public function loginUser(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -47,19 +51,17 @@ class AuthController extends Controller
         ]);
 
         $user = User::where('email', '=', $request->email)->first();
-        
-        if (!$user) return back()->with('fail', 'Email not recognized');
-        if (Hash::check($request->password, $user->passwordHash)) 
-        { 
-            $request->session()->put('loginId', $user->id); 
-  
-            return redirect('home');
-        }
-        else return back()->with('fail', 'Account details incorrect');
 
+        if (!$user) return back()->with('fail', 'Email not recognized');
+        if (Hash::check($request->password, $user->passwordHash)) {
+            $request->session()->put('loginId', $user->id);
+            $request->session()->put('loginName', $user->name);
+
+            return redirect('home');
+        } else return back()->with('fail', 'Account details incorrect');
     }
 
-    public function registerUser(Request $request) 
+    public function registerUser(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -79,22 +81,25 @@ class AuthController extends Controller
         $user->passwordHash = Hash::make($request->password);
         $res = $user->save();
 
-        if($res) return back()->with('success', 'Account registered');
+        if ($res) return back()->with('success', 'Account registered');
         else return back()->with('fail', 'Unable to create account');
     }
 
     public function home()
     {
         $data = array();
-        if(Session::has('loginId')) {
+        if (Session::has('loginId')) {
             $data = User::where('id', '=', Session::get('loginId'))->first();
         }
+
         return view('home', compact('data'));
     }
 
-    public function logout() {
-        if(Session::has('loginId')) {
+    public function logout()
+    {
+        if (Session::has('loginId')) {
             Session::pull('loginId'); //unset logged in account
+            Session::pull('loginName'); //unset logged in account
             Session::pull('cart'); //clear basket session
         }
         return redirect('login');

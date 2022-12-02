@@ -17,12 +17,12 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect('home');
-// });
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);

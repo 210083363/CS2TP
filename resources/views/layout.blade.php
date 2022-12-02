@@ -25,11 +25,26 @@
     <header class="header">
         <ul>
             <h2> STANCE </h2>
-            <div id="header-sub">
+
+            @if (!Session::has('loginId'))
+
+            <li><a href="{{url('register')}}" class="header-link">SIGN UP</a></li>
+
+            <li><a href="{{url('login')}}" class="header-link">LOGIN</a></li>
+
+            @else
+            <li><a href="{{url('logout')}}" class="header-link">LOGOUT</a></li>
+
+            <li><a href="{{url('basket')}}" class="header-link">BASKET</a></li>
+
+
+            @endif
+
+            <!-- <div id="header-sub">
                 <li><a href="{{url('login')}}" class="header-link">LOGIN</a></li>
                 <li><a href="{{url('register')}}" class="header-link">SIGN UP</a></li>
                 <li><a href="{{url('basket')}}" class="header-link">BASKET</a></li>
-            </div>
+            </div> -->
         </ul>
 
     </header>
@@ -44,7 +59,7 @@
 
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="#" class="nav-link">Home</a>
+                <a href="{{url('home')}}" class="nav-link">Home</a>
             <li class="nav-item">
                 <a href="{{url('products')}}" class="nav-link">Products Page</a>
             </li>

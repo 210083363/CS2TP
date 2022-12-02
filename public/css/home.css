@@ -182,6 +182,23 @@ form .fn_button_big input:hover {
     font-size: 45px;
 }
 
+.best-sellers div {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 5px solid #faa; */
+    padding: 10px;
+    margin: 10px auto;
+    width: 100%;
+}
+
+.best-sellers img {
+    min-width: 15%;
+    /* max-width: 15%; */
+    margin: 1rem;
+}
+
 /* .best-seller-1 {
     width: 35%;
     padding-left: 10%;

@@ -35,6 +35,7 @@
             @else
             <li><a href="{{url('logout')}}" class="header-link">LOGOUT</a></li>
 
+            <li><a href="{{url('orders')}}" class="header-link">ORDERs</a></li>
             <li><a href="{{url('basket')}}" class="header-link">BASKET</a></li>
 
 

@@ -13,8 +13,18 @@ class AuthController extends Controller
 
     public function viewAccounts()
     {
-        $data = User::all();
-        return view('auth.accounts', compact('data'));
+        if (Session::has('loginId')) {
+            $user = User::where('id', '=', Session::get('loginId'))->first();
+
+            if ($user->group > 1) {
+                $data = User::all();
+                return view('auth.accounts', compact('data'));
+            } else {
+                return redirect('/home');
+            }
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function updateGroup(Request $request)
@@ -56,6 +66,7 @@ class AuthController extends Controller
         if (Hash::check($request->password, $user->passwordHash)) {
             $request->session()->put('loginId', $user->id);
             $request->session()->put('loginName', $user->name);
+            $request->session()->put('userGroup', $user->group);
 
             return redirect('home');
         } else return back()->with('fail', 'Account details incorrect');
@@ -100,6 +111,7 @@ class AuthController extends Controller
         if (Session::has('loginId')) {
             Session::pull('loginId'); //unset logged in account
             Session::pull('loginName'); //unset logged in account
+            Session::pull('userGroup'); //unset user group
             Session::pull('cart'); //clear basket session
         }
         return redirect('login');

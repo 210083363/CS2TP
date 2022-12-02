@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/signup.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/homePage.css" />
     <title> Stance </title>
 
     <link rel="icon" type="Images" href="images/Logo_Draft_2.png">
@@ -22,6 +23,7 @@
 
     <!-- header for search bar and basket/login/signup stuff
                 gonna do that l8r -->
+
     <header class="header">
         <ul>
             <h2> STANCE </h2>
@@ -64,11 +66,22 @@
             <li class="nav-item">
                 <a href="{{url('products')}}" class="nav-link">Products Page</a>
             </li>
+            @if (Session::has('userGroup') && Session::get('userGroup') > 0)
+            <li class="nav-item">
+                <a href="{{url('manage')}}" class="nav-link">Manage</a>
+            </li>
+            @endif
+            @if (Session::has('userGroup') && Session::get('userGroup') > 1)
+            <li class="nav-item">
+                <a href="{{url('accounts')}}" class="nav-link">View Accounts</a>
+            </li>
+            @endif
+
             <li class="nav-item">
                 <a href="#about-us" class="nav-link">About us</a>
             </li>
             <li class="nav-item">
-                <a href="#footer" class="nav-link">Contact us</a>
+                <a href="#about-us" class="nav-link">Contact us</a>
             </li>
         </ul>
     </nav>
@@ -93,10 +106,8 @@
 
         </div>
         <div class="footer-content">
-            <div id="first-box" class="box">
-                <div id="first-box-header">
-                    <h3>Email for Enquires</h3>
-                </div>
+            <div class="contact-box">
+                <h3>Email for Enquires</h3>
                 <div id="email-box">
                     <p>
                         For any enquires regarding the website <br>
@@ -104,10 +115,8 @@
                     </p>
                 </div>
             </div>
-            <div id="second-box" class="box">
-                <div id="second-box-header">
-                    <h3>STANCE</h3>
-                </div>
+            <div class="contact-box">
+                <h3>STANCE</h3>
                 <div id="courses-box">
                     <p>
                         We stand for something bigger than sneakers. <br>
@@ -117,26 +126,24 @@
                     </p>
                 </div>
             </div>
-            <div id="third-box" class="box">
-                <div id="third-box-header">
-                    <h3>Contact Emails</h3>
-                </div>
-                <div id="contact-box">
-                    <ul>
-                        <li>Email for Enquires:<br>
-                            <strong>stance-enquires.stance.ac.uk</strong>
-                        </li>
-                        <li>Email for delivery support:<br>
-                            <strong>stance-delivery.stance.ac.uk</strong>
-                        </li>
-                    </ul>
-                </div>
+            <div class="contact-box" style="padding-left:7rem;">
+                <h3>Contact Emails</h3>
+                <ul style="margin-left:25px; list-style-type: none;">
+                    <li>Email for Enquires:
+                        <em>stance-enquires.stance.ac.uk</em>
+
+                    </li>
+                    <li>Email for delivery support:
+                        <em>stance-delivery.stance.ac.uk</em>
+                    </li>
+                </ul>
             </div>
         </div>
     </footer>
 
 
-    <script src="app.js"> </script>
+    <script src=" app.js">
+    </script>
 </body>
 
 </html>

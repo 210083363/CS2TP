@@ -14,9 +14,16 @@ class ProductController extends Controller
     {
         $data = array();
         if (Session::has('loginId')) {
-            $data = Product::where('user_id', '=', Session::get('loginId'))->get();
+            if (Session::get('userGroup') > 0) {
+                $data = Product::where('user_id', '=', Session::get('loginId'))->get();
+
+                return view('product.manage', compact('data'));
+            } else {
+                return redirect('/home');
+            }
+        } else {
+            return redirect('/login');
         }
-        return view('product.manage', compact('data'));
     }
 
     public function viewAllProducts()

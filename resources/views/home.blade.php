@@ -12,7 +12,7 @@
         <h3> Welcome to the launch of Stance!</h3>
         <!--<button type ="button"> Shop Now <img src ="arrow.png">
          </button>-->
-        <button onclick="window.location.href = '{{url('products')}}'">Shop Now<img src="images/arrow.png"></button>
+        <button onclick="window.location.href = '{{url('products')}}' " class="shopnow">Shop Now<img src="images/arrow.png"></button>
     </div>
     <div class="col-2">
         <img src="images/shoe01 img.png" class="shoe1">
@@ -97,11 +97,5 @@
     </div>-->
 
 
-<div id="about-us">
-    <!-- refer to proj brief for about us page/section -->
-    <h2> STANCE</h2>
-    <h3> We stand for something bigger than sneakers. We champion those who are fearlessly driven by their passions. We elevate sport. We do right by people and the planet. Together we drive meaningful change in communities around the world. The upcoming generations love their shoes so if you’re between the ages of 16-28 make sure your on stance upgrading your shoes with every fit. Our resellers are the heart of our product line, giving them a platform to distribute their purchased products. The products displayed are all checked before shipped to ensure our clients have no issues with their purchases.</h3>
-
-</div>
 
 @endsection

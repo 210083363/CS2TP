@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="fn_button_big">
-                <input type="submit" value="Login">
+                <input .shopnow type="submit" value="Login">
             </div>
         </form>
         <div class="existing-account-log">

@@ -16,7 +16,7 @@ class OrderController extends Controller
     //
     public function viewOrders()
     {
-        $user = User::where('id','=',Session::get('loginId'))->first();
+        $user = User::where('id', '=', Session::get('loginId'))->first();
         $data = [];
         if (Session::has('loginId')) {
             $orders = array();
@@ -42,6 +42,8 @@ class OrderController extends Controller
             }
 
             return view('orders', compact('data', 'user'));
+        } else {
+            return redirect('/login');
         }
     }
 }

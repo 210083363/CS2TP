@@ -15,7 +15,7 @@
 
 
 <link rel="stylesheet" href="css/basket.css">
-<div class="container-log manage_product" style="max-width:60rem;">
+<div class="container-log manage_product" style="max-width:65rem;">
     <div class="title">
         <h4>Manage Products</h4>
     </div>
@@ -51,12 +51,12 @@
                             <option value="female">Female</option>
                         </select></td>
                     <td><input type="file" name="product_image" class="form-control" style="width:15rem;"></td>
-                    <td><button type="submit" class="form-submits" style="margin-left:0;">Add product</button></td>
+                    <td><input type="submit" class="form-submits" style="margin-left:0; width:4rem;" value="Add product"></td>
                 </tr>
             </tbody>
         </table>
     </form>
-    <table class="fn_table_manage">
+    <table class="fn_table_manage" style="margin-top:5rem;">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
